@@ -1,0 +1,6 @@
+bat, Bruce, 5
+bird, Tweety, 2
+lion, Simba, 7
+bat, Nightwing, 3
+bird, Rio, 4
+lion, Mufasa, 10

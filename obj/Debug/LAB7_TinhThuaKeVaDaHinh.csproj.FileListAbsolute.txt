@@ -1,0 +1,7 @@
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\bin\Debug\LAB7_TinhThuaKeVaDaHinh.exe.config
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\bin\Debug\LAB7_TinhThuaKeVaDaHinh.exe
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\bin\Debug\LAB7_TinhThuaKeVaDaHinh.pdb
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\obj\Debug\LAB7_TinhThuaKeVaDaHinh.csproj.AssemblyReference.cache
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\obj\Debug\LAB7_TinhThuaKeVaDaHinh.csproj.CoreCompileInputs.cache
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\obj\Debug\LAB7_TinhThuaKeVaDaHinh.exe
+C:\Users\nguyen.cao\Desktop\codec++\oop\baiTapTrenLMS\LAB7_TinhThuaKeVaDaHinh\LAB7_TinhThuaKeVaDaHinh\obj\Debug\LAB7_TinhThuaKeVaDaHinh.pdb
