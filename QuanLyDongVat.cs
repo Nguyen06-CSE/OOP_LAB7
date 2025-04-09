@@ -50,13 +50,41 @@ namespace LAB7_TinhThuaKeVaDaHinh
             }
             sr.Close();
         }
-    
 
-        // Method to add an animal to the collection
-        public void AddAnimal(IAnimal animal)
+        public void AddAnimal()
         {
-            Collection.Add(animal);
+            Console.WriteLine("Enter animal type (Bat/Bird/Lion): ");
+            string type = Console.ReadLine();
+
+            Console.WriteLine("Enter name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Enter age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            IAnimal animal = null;
+
+            switch (type.ToLower())
+            {
+                case "bat":
+                    animal = new Bat { Name = name, Age = age };
+                    break;
+                case "bird":
+                    animal = new Bird { Name = name, Age = age };
+                    break;
+                case "lion":
+                    animal = new Lion { Name = name, Age = age };
+                    break;
+                default:
+                    Console.WriteLine("Unknown animal type.");
+                    return;
+            }
+
+           Collection.Add(animal);
         }
+
+
+       
 
         // Method to print all animals
         public void PrintAnimals()
@@ -64,6 +92,14 @@ namespace LAB7_TinhThuaKeVaDaHinh
             foreach (var animal in Collection)
             {
                 Console.WriteLine(animal);
+            }
+        }
+
+        public void PrintArrayString (List<string> list)
+        {
+            foreach(var item in list)
+            {
+                Console.WriteLine(item);
             }
         }
 
@@ -355,18 +391,62 @@ namespace LAB7_TinhThuaKeVaDaHinh
             return FindAge(true);
         }
 
-        public List<string> FindTheYoungestName()
+        public List<string> FindTheYoungest()
         {
             return FindAge(false);
+        }
+
+        public int FindMaxLengthOfName()
+        {
+            int maxVal = 0;
+            foreach (var animal in Collection)
+            {
+                if (animal.Name.Length > maxVal)
+                {
+                    maxVal = animal.Name.Length;
+                }
+            }
+            return maxVal;
         }
 
         public List<string> FindTheLengestOfNameByBreed()
         {
             List<string> result = new List<string>();
-            int maxVal = 0;
+            int max = FindMaxLengthOfName();
+            foreach (var item in Collection)
+            {
+                if(item.Name.Length == max)
+                {
+                    result.Add(item.Name);
+                }
+            }
+
+            return result;
+        }
+
+        public int FindMinLengthOfName()
+        {
+            int min = 0;
             foreach (var animal in Collection)
             {
+                if (animal.Name.Length < min)
+                {
+                    min = animal.Name.Length;
+                }
+            }
+            return min;
+        }
 
+        public List<string> FindTheShortestOfNameByBreed()
+        {
+            List<string> result = new List<string>();
+            int min = FindMaxLengthOfName();
+            foreach (var item in Collection)
+            {
+                if (item.Name.Length == min)
+                {
+                    result.Add(item.Name);
+                }
             }
 
             return result;
@@ -677,10 +757,10 @@ namespace LAB7_TinhThuaKeVaDaHinh
         }
 
 
-        //use LINQ and reuse function FindTheYoungestName() and FindTheOldest()
+        //use LINQ and reuse function FindTheYoungest() and FindTheOldest()
         public void EraseAllAnimalsYoungest()
         {
-            List<string> youngestNames = FindTheYoungestName();
+            List<string> youngestNames = FindTheYoungest();
             Collection.RemoveAll(animal => youngestNames.Contains(animal.Name));
         }
 
@@ -832,21 +912,47 @@ namespace LAB7_TinhThuaKeVaDaHinh
             return totalAge;
         }
 
-        public void AddAnimalAtPosition(IAnimal animal, int position)
+        public void AddAnimalAtPosition(int position)
         {
             if (position < 0 || position > Collection.Count)
             {
                 Console.WriteLine("vi tri ko hop le");
             }
+            Console.WriteLine("Enter animal type (Bat/Bird/Lion): ");
+            string type = Console.ReadLine();
 
+            Console.WriteLine("Enter name: ");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Enter age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            IAnimal animal = null;
+
+            switch (type.ToLower())
+            {
+                case "bat":
+                    animal = new Bat { Name = name, Age = age };
+                    break;
+                case "bird":
+                    animal = new Bird { Name = name, Age = age };
+                    break;
+                case "lion":
+                    animal = new Lion { Name = name, Age = age };
+                    break;
+                default:
+                    Console.WriteLine("Unknown animal type.");
+                    return;
+            }
             Collection.Insert(position, animal);
         }
 
-        public void DisplayAscendingByName()
+
+        public void AscendingByName()
         {
-            for(int i = 0; i < Collection.Count-1; i++)
+            for (int i = 0; i < Collection.Count - 1; i++)
             {
-                for (int j = i+1; j < Collection.Count; j++)
+                for (int j = i + 1; j < Collection.Count; j++)
                 {
                     if (string.Compare(Collection[i].Name, Collection[j].Name) < 0)
                     {
@@ -854,10 +960,9 @@ namespace LAB7_TinhThuaKeVaDaHinh
                     }
                 }
             }
-            PrintAnimals();
         }
 
-        public void DisplayDecendingByName()
+        public void DecendingByName()
         {
             for (int i = 0; i < Collection.Count - 1; i++)
             {
@@ -869,10 +974,21 @@ namespace LAB7_TinhThuaKeVaDaHinh
                     }
                 }
             }
+        }
+
+        public void DisplayAscendingByName()
+        {
+            AscendingByName();
             PrintAnimals();
         }
 
-        public void DisplayAscendingByAge()
+        public void DisplayDecendingByName()
+        {
+            DecendingByName();
+            PrintAnimals();
+        }
+
+        public void AscendingByAge()
         {
             for (int i = 0; i < Collection.Count - 1; i++)
             {
@@ -884,10 +1000,9 @@ namespace LAB7_TinhThuaKeVaDaHinh
                     }
                 }
             }
-            PrintAnimals();
         }
 
-        public void DisplayDecendingByAge()
+        public void DecendingByAge()
         {
             for (int i = 0; i < Collection.Count - 1; i++)
             {
@@ -899,6 +1014,17 @@ namespace LAB7_TinhThuaKeVaDaHinh
                     }
                 }
             }
+        }
+
+        public void DisplayAscendingByAge()
+        {
+            AscendingByAge();
+            PrintAnimals();
+        }
+
+        public void DisplayDecendingByAge()
+        {
+           DecendingByAge();
             PrintAnimals();
         }
 
@@ -949,6 +1075,33 @@ namespace LAB7_TinhThuaKeVaDaHinh
             return sorted;
         }
 
+        public void DisplayAnimalsGrouped_AscendingByName()
+        {
+            AscendingByName();
+            GetSortedByGroup();
+            PrintAnimals();
+        }
+
+        public void DisplayAnimalsGrouped_DecendingByName()
+        {
+            DecendingByName();
+            GetSortedByGroup();
+            PrintAnimals();
+        }
+
+        public void DisplayAnimalsGrouped_AscendingByAge()
+        {
+            AscendingByAge();
+            GetSortedByGroup();
+            PrintAnimals();
+        }
+
+        public void DisplayAnimalsGrouped_DecendingByAge()
+        {
+            DecendingByAge();
+            GetSortedByGroup();
+            PrintAnimals();
+        }
 
     }
 }
